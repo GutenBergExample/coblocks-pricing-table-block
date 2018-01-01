@@ -1,6 +1,6 @@
 # Gutenberg Pricing Table Block by GutenKit
 
-[![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress](https://img.shields.io/wordpress/v/pricing-table-block-gutenberg.svg?style=flat)]() [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/thatplugincompany/pricing-table-block-gutenberg/blob/master/license.txt)
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress](https://img.shields.io/wordpress/v/pricing-table-block-gutenberg.svg?style=flat)]() [![License](https://img.shields.io/badge/license-GPL--3.0%2B-red.svg)](https://github.com/thatplugincompany/pricing-table-block-gutenberg/blob/master/license.txt)
 
 [GutenKit's](https://gutenkit.com?utm_medium=gutenkit-pricing-tables-github&utm_source=readme&utm_campaign=readme&utm_content=gutenkits) new Pricing Table Block is the easiest and fastest way to add pricing tables to your WordPress sales and landing pages.
 
