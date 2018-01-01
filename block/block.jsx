@@ -462,7 +462,7 @@ registerBlockType( 'gutenkit-lite/pricing-table', {
 
 			<div className={ className } >
 
-				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit/pricing-table"] { margin-top: ' + marginTop + 'px; margin-bottom: ' + marginBottom + 'px; }' } } />
+				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit-lite/pricing-table"] { margin-top: ' + marginTop + 'px; margin-bottom: ' + marginBottom + 'px; }' } } />
 
 				<div className={ 'pricing-table pricing-table--' + columns + ' pricing-table--' + align } style={ { textAlign: align } }>
 
