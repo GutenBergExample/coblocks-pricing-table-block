@@ -9,6 +9,10 @@ var editorWatchFile   		= './block/editor.scss';
 var scriptWatchFiles   		= [ './block/block.build.js', './block/frontend.js' ];
 var PHPWatchFiles    		= [ './**/*.php' ];
 
+var buildFiles      	    	= ['./**', '!dist/', '!wordpress.org/**/*', '!wordpress.org/**', '!wordpress.org/', '!sublime-project',  '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!/**/node_modules/**', '!/**/**/**/.sublime-project', '!/**/.sublime-workspace', '!/**/.block.jsx', '!'+ slug +'.sublime-project', '!package.json', '!/**/package.json', '!/**/package-lock.json', '!/**/webpack.config.js', '!/**/*.sublime-project', '!/**/*.jsx', '!/**/gulpfile.js', '!/**/*.sublime-workspace', '!/**/frontend.js', '!/**/style.css', '!/**/style.scss', '!/**/editor.css', '!/**/editor.scss', '!/**/block.build.js', '!gulpfile.js', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
+var buildDestination        	= './dist/'+ pkg.slug +'/';
+var distributionFiles       	= './dist/'+ pkg.slug +'/**/*';
+
 const AUTOPREFIXER_BROWSERS = [
     'last 2 version',
     '> 1%',
@@ -39,6 +43,8 @@ var sourcemaps   = require('gulp-sourcemaps');
 var browserSync  = require('browser-sync').create();
 var cache        = require('gulp-cache');
 var uglify       = require('gulp-uglify');
+var wpPot        = require('gulp-wp-pot');
+var zip          = require('gulp-zip');
 var reload       = browserSync.reload;
 
 /**
@@ -113,4 +119,126 @@ gulp.task( 'default', [ 'clear', 'styles', 'editor_styles', 'scripts' ], functio
 	gulp.watch( PHPWatchFiles, reload );
 	gulp.watch( styleWatchFile, [ 'styles' ] );
 	gulp.watch( editorWatchFile, [ 'editor_styles' ] );
+});
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Build Tasks
+ */
+
+gulp.task( 'translate', function () {
+
+	gulp.src( translatableFiles )
+
+	.pipe( sort() )
+	.pipe( wpPot( {
+		domain        : text_domain,
+		destFile      : destFile,
+		package       : project,
+		bugReport     : bugReport,
+		lastTranslator: lastTranslator,
+		team          : team
+	} ))
+	.pipe( gulp.dest( translatePath ) )
+
+});
+
+gulp.task( 'clean', function () {
+	return gulp.src( ['./dist/*'] , { read: false } )
+	.pipe(cleaner());
+});
+
+gulp.task( 'copy', function() {
+    return gulp.src( buildFiles )
+    .pipe( copy( buildDestination ) );
+});
+
+gulp.task('variables', function () {
+	return gulp.src( distributionFiles )
+	.pipe( replace( {
+		patterns: [
+		{
+			match: 'pkg.version',
+			replacement: version
+		},
+		{
+			match: 'textdomain',
+			replacement: pkg.textdomain
+		},
+		{
+			match: 'pkg.name',
+			replacement: project
+		},
+		{
+			match: 'pkg.slug',
+			replacement: slug
+		},
+		{
+			match: 'pkg.downloadid',
+			replacement: pkg.downloadid
+		},
+		{
+			match: 'pkg.license',
+			replacement: pkg.license
+		},
+		{
+			match: 'pkg.plugin_uri',
+			replacement: pkg.plugin_uri
+		},
+		{
+			match: 'pkg.author',
+			replacement: pkg.author
+		},
+		{
+			match: 'pkg.author_uri',
+			replacement: pkg.author_uri
+		},
+		{
+			match: 'pkg.description',
+			replacement: pkg.description
+		},
+		{
+			match: 'pkg.requires',
+			replacement: pkg.requires
+		},
+		{
+			match: 'pkg.tested_up_to',
+			replacement: pkg.tested_up_to
+		},
+		{
+			match: 'pkg.tags',
+			replacement: pkg.tags
+		}
+		]
+	}))
+	.pipe( gulp.dest( buildDestination ) );
+});
+
+gulp.task( 'zip', function() {
+    return gulp.src( buildDestination+'/**', { base: 'dist'} )
+    .pipe( zip( slug +'.zip' ) )
+    .pipe( gulp.dest( './dist/' ) );
+});
+
+gulp.task( 'clean-after-zip', function () {
+	return gulp.src( [ buildDestination, '!/dist/' + slug + '.zip'] , { read: false } )
+	.pipe(cleaner());
+});
+
+gulp.task( 'finished-building', function () {
+	return gulp.src( '' )
+	.pipe( notify( { message: '👷 Your build of ' + packageName + ' is complete.', onLast: true } ) );
+});
+
+gulp.task( 'build', function( callback ) {
+	runSequence( 'clear', 'clean', [ 'styles', 'editor_styles', 'scripts', 'translate' ], 'copy', 'variables', 'zip', 'clean-after-zip', 'finished-building', callback);
 });
