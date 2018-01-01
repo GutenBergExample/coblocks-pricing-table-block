@@ -1,0 +1,118 @@
+.wp-block-gutenkit-lite-pricing-table {
+
+	.pricing-table {
+		position: relative;
+
+		&__item {
+			background: #f0f0f0;
+			margin-bottom: 1rem;
+			padding: 4em 1.8em;
+			position: relative;
+		}
+
+		&__highlight {
+
+			$size: 66px;
+
+			background: #32373c;
+			border-radius: 100%;
+			height: $size;
+			position: absolute;
+			overflow: hidden;
+			display: flex;
+			right: 1em;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			top: 1em;
+			width: $size;
+		}
+
+		&__highlight-text {
+			color: #fff;
+			font-size: .9em;
+		}
+
+		&__title {
+			margin-top: 0;
+			margin-right: 0;
+			margin-left: 0;
+			padding: 0;
+		}
+
+		&__price {
+			line-height: 1;
+			position: relative;
+			display: flex;
+		}
+
+		&__currency {
+			font-size: 1em;
+		}
+
+		&__amount {
+			font-size: 5em;
+		}
+
+		&__features {
+			margin: 0;
+			padding: 0;
+
+			ul, li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		&__title,
+		&__price,
+		&__features {
+			margin-bottom: 2rem;
+		}
+	}
+
+	& .pricing-table--center .pricing-table__price {
+		justify-content: center;
+	}
+
+	& .pricing-table--right .pricing-table__price {
+		justify-content: flex-end;
+	}
+}
+
+@media (min-width: 600px) {
+	.pricing-table--2 {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		flex: 0 1 auto;
+		margin: -.75rem;
+		position: relative;
+
+		.pricing-table__item {
+			flex-basis: 0;
+			flex-grow: 1;
+			margin: .75rem;
+			max-width: 100%;
+		}
+	}
+}
+
+@media (min-width: 600px) {
+	.pricing-table--3 {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		flex: 0 1 auto;
+		margin: -.75rem;
+		position: relative;
+
+		.pricing-table__item {
+			flex-basis: 0;
+			flex-grow: 1;
+			margin: .75rem;
+			max-width: 100%;
+		}
+	}
+}

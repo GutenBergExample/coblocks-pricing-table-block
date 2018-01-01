@@ -1,0 +1,49 @@
+.editor-block-list__block[data-type="gutenkit-lite/pricing-table"] {
+
+	.pricing-table__highlight {
+		background-color: #32373c;
+
+		&.is-empty {
+			background-color: rgba( #32373c, .2 );
+			color: #fff;
+
+			span {
+				opacity: 1;
+			}
+		}
+
+		.blocks-editable__tinymce[data-is-placeholder-visible=true] {
+			top: auto;
+		}
+	}
+
+	.pricing-table__price {
+		display: flex !important;
+
+		.blocks-editable {
+			display: inline-block;
+		}
+	}
+
+	.pricing-table--right .pricing-table__price {
+		justify-content: flex-end;
+	}
+
+	.blocks-button__inline-link {
+
+		&--fullwidth {
+			width: 100%;
+		}
+
+		&--second {
+			display: flex;
+			margin-left: 60px;
+
+			.dashicon {
+				position: relative;
+				top: 8px;
+			}
+		}
+	}
+
+}
