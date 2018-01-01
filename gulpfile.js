@@ -9,9 +9,18 @@ var editorWatchFile   		= './block/editor.scss';
 var scriptWatchFiles   		= [ './block/block.build.js', './block/frontend.js' ];
 var PHPWatchFiles    		= [ './**/*.php' ];
 
-var buildFiles      	    	= ['./**', '!dist/', '!wordpress.org/**/*', '!wordpress.org/**', '!wordpress.org/', '!sublime-project',  '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!/**/node_modules/**', '!/**/**/**/.sublime-project', '!/**/.sublime-workspace', '!/**/.block.jsx', '!'+ slug +'.sublime-project', '!package.json', '!/**/package.json', '!/**/package-lock.json', '!/**/webpack.config.js', '!/**/*.sublime-project', '!/**/*.jsx', '!/**/gulpfile.js', '!/**/*.sublime-workspace', '!/**/frontend.js', '!/**/style.css', '!/**/style.scss', '!/**/editor.css', '!/**/editor.scss', '!/**/block.build.js', '!gulpfile.js', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
+var buildFiles      	    	= ['./**', '!dist/', '!wordpress.org/**/*', '!wordpress.org/**', '!wordpress.org/', '!sublime-project',  '!.gitattributes', '!.csscomb.json', '!node_modules/**', '!/**/node_modules/**', '!/**/**/**/.sublime-project', '!/**/.sublime-workspace', '!/**/.block.jsx', '!*.sublime-project', '!package.json', '!/**/package.json', '!/**/package-lock.json', '!/**/webpack.config.js', '!/**/*.sublime-project', '!/**/*.jsx', '!/**/gulpfile.js', '!/**/*.sublime-workspace', '!/**/frontend.js', '!/**/style.css', '!/**/style.scss', '!/**/editor.css', '!/**/editor.scss', '!/**/block.build.js', '!gulpfile.js', '!assets/scss/**', '!*.json', '!*.map', '!*.md', '!*.xml', '!*.sublime-workspace', '!*.sublime-gulp.cache', '!*.log', '!*.gitattributes', '!*.DS_Store','!*.gitignore', '!TODO', '!*.git' ];
 var buildDestination        	= './dist/'+ pkg.slug +'/';
 var distributionFiles       	= './dist/'+ pkg.slug +'/**/*';
+
+var text_domain             	= '@@textdomain';
+var destFile                	= pkg.slug+'.pot';
+var packageName             	= pkg.title;
+var bugReport               	= pkg.author_uri;
+var lastTranslator          	= pkg.author;
+var team                    	= pkg.author_shop;
+var translatePath           	= './languages';
+var translatableFiles       	= ['./**/*.php'];
 
 const AUTOPREFIXER_BROWSERS = [
     'last 2 version',
@@ -34,8 +43,12 @@ var gulp         = require('gulp');
 var sass         = require('gulp-sass');
 var minifycss    = require('gulp-uglifycss');
 var autoprefixer = require('gulp-autoprefixer');
+var cleaner      = require('gulp-clean');
+var copy         = require('gulp-copy');
+var sort         = require('gulp-sort');
 var rename       = require('gulp-rename');
 var notify       = require('gulp-notify');
+var replace      = require('gulp-replace-task');
 var runSequence  = require('run-sequence');
 var lineec       = require('gulp-line-ending-corrector');
 var csscomb      = require('gulp-csscomb');
@@ -143,7 +156,7 @@ gulp.task( 'translate', function () {
 	.pipe( wpPot( {
 		domain        : text_domain,
 		destFile      : destFile,
-		package       : project,
+		package       : pkg.title,
 		bugReport     : bugReport,
 		lastTranslator: lastTranslator,
 		team          : team
@@ -163,80 +176,76 @@ gulp.task( 'copy', function() {
 });
 
 gulp.task('variables', function () {
-	return gulp.src( distributionFiles )
-	.pipe( replace( {
-		patterns: [
-		{
-			match: 'pkg.version',
-			replacement: version
-		},
-		{
-			match: 'textdomain',
-			replacement: pkg.textdomain
-		},
-		{
-			match: 'pkg.name',
-			replacement: project
-		},
-		{
-			match: 'pkg.slug',
-			replacement: slug
-		},
-		{
-			match: 'pkg.downloadid',
-			replacement: pkg.downloadid
-		},
-		{
-			match: 'pkg.license',
-			replacement: pkg.license
-		},
-		{
-			match: 'pkg.plugin_uri',
-			replacement: pkg.plugin_uri
-		},
-		{
-			match: 'pkg.author',
-			replacement: pkg.author
-		},
-		{
-			match: 'pkg.author_uri',
-			replacement: pkg.author_uri
-		},
-		{
-			match: 'pkg.description',
-			replacement: pkg.description
-		},
-		{
-			match: 'pkg.requires',
-			replacement: pkg.requires
-		},
-		{
-			match: 'pkg.tested_up_to',
-			replacement: pkg.tested_up_to
-		},
-		{
-			match: 'pkg.tags',
-			replacement: pkg.tags
-		}
-		]
-	}))
-	.pipe( gulp.dest( buildDestination ) );
+	// return gulp.src( distributionFiles )
+	// .pipe( replace( {
+	// 	patterns: [
+	// 	{
+	// 		match: 'pkg.version',
+	// 		replacement: pkg.version
+	// 	},
+	// 	{
+	// 		match: 'textdomain',
+	// 		replacement: pkg.textdomain
+	// 	},
+	// 	{
+	// 		match: 'pkg.title',
+	// 		replacement: pkg.title
+	// 	},
+	// 	{
+	// 		match: 'pkg.slug',
+	// 		replacement: pkg.slug
+	// 	},
+	// 	{
+	// 		match: 'pkg.license',
+	// 		replacement: pkg.license
+	// 	},
+	// 	{
+	// 		match: 'pkg.plugin_uri',
+	// 		replacement: pkg.plugin_uri
+	// 	},
+	// 	{
+	// 		match: 'pkg.author',
+	// 		replacement: pkg.author
+	// 	},
+	// 	{
+	// 		match: 'pkg.author_uri',
+	// 		replacement: pkg.author_uri
+	// 	},
+	// 	{
+	// 		match: 'pkg.description',
+	// 		replacement: pkg.description
+	// 	},
+	// 	{
+	// 		match: 'pkg.requires',
+	// 		replacement: pkg.requires
+	// 	},
+	// 	{
+	// 		match: 'pkg.tested_up_to',
+	// 		replacement: pkg.tested_up_to
+	// 	},
+	// 	{
+	// 		match: 'pkg.tags',
+	// 		replacement: pkg.tags
+	// 	}
+	// 	]
+	// }))
+	// .pipe( gulp.dest( buildDestination ) );
 });
 
 gulp.task( 'zip', function() {
     return gulp.src( buildDestination+'/**', { base: 'dist'} )
-    .pipe( zip( slug +'.zip' ) )
+    .pipe( zip( pkg.slug +'.zip' ) )
     .pipe( gulp.dest( './dist/' ) );
 });
 
 gulp.task( 'clean-after-zip', function () {
-	return gulp.src( [ buildDestination, '!/dist/' + slug + '.zip'] , { read: false } )
+	return gulp.src( [ buildDestination, '!/dist/' + pkg.slug + '.zip'] , { read: false } )
 	.pipe(cleaner());
 });
 
 gulp.task( 'finished-building', function () {
 	return gulp.src( '' )
-	.pipe( notify( { message: '👷 Your build of ' + packageName + ' is complete.', onLast: true } ) );
+	.pipe( notify( { message: '👷 Your build of ' + pkg.title + ' is complete.', onLast: true } ) );
 });
 
 gulp.task( 'build', function( callback ) {
