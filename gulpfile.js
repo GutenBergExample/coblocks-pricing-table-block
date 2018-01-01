@@ -48,13 +48,13 @@ gulp.task('clear', function () {
 	cache.clearAll();
 });
 
-gulp.task( 'browser_sync', function() {
-	browserSync.init( {
-		proxy: projectURL,
-		open: true,
-		injectChanges: true,
-	});
-});
+// gulp.task( 'browser_sync', function() {
+// 	browserSync.init( {
+// 		proxy: projectURL,
+// 		open: true,
+// 		injectChanges: true,
+// 	});
+// });
 
 gulp.task( 'styles', function () {
 	gulp.src( styleWatchFile, { base: './' } )
@@ -103,7 +103,7 @@ gulp.task( 'scripts', function() {
 	.pipe( uglify() )
 	.pipe( lineec() )
 	.pipe( gulp.dest( '.' ) )
-	.pipe( browserSync.stream() )
+	// .pipe( browserSync.stream() )
 });
 
 /**
