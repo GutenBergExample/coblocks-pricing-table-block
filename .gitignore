@@ -45,6 +45,10 @@ Thumbs.db
 ######################
 languages
 
+# WordPress.org Readme.txt #
+######################
+readme.txt
+
 # Composer #
 ##########
 vendors/composer/
