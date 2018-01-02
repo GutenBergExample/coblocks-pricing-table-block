@@ -4,6 +4,10 @@
 
 [GutenKit's](https://gutenkit.com?utm_medium=gutenkit-pricing-tables-github&utm_source=readme&utm_campaign=readme&utm_content=gutenkits) new Pricing Table Block is the easiest and fastest way to add pricing tables to your WordPress sales and landing pages.
 
+### See it in action: ###
+
+![GutenKit Pricing Tables for Gutenberg](https://user-images.githubusercontent.com/1813435/34488068-fff8e3e6-efa4-11e7-89c5-195021669a11.gif)
+
 ## Installation ##
 
 1. Install the offical [Gutenberg](https://wordpress.org/plugins/gutenberg/) plugin. Note that Gutenberg is not suggested for use on production sites.
