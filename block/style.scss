@@ -52,6 +52,9 @@
 
 		&__amount {
 			font-size: 5em;
+			letter-spacing: normal;
+			margin: 0;
+			padding: 0;
 		}
 
 		&__features {
@@ -72,47 +75,29 @@
 		}
 	}
 
+	@media (min-width: 600px) {
+		.pricing-table.pricing-table--2 {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			flex: 0 1 auto;
+			margin: -.75rem;
+			position: relative;
+
+			.pricing-table__item {
+				flex-basis: 0;
+				flex-grow: 1;
+				margin: .75rem;
+				max-width: 100%;
+			}
+		}
+	}
+
 	& .pricing-table--center .pricing-table__price {
 		justify-content: center;
 	}
 
 	& .pricing-table--right .pricing-table__price {
 		justify-content: flex-end;
-	}
-}
-
-@media (min-width: 600px) {
-	.pricing-table--2 {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		flex: 0 1 auto;
-		margin: -.75rem;
-		position: relative;
-
-		.pricing-table__item {
-			flex-basis: 0;
-			flex-grow: 1;
-			margin: .75rem;
-			max-width: 100%;
-		}
-	}
-}
-
-@media (min-width: 600px) {
-	.pricing-table--3 {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		flex: 0 1 auto;
-		margin: -.75rem;
-		position: relative;
-
-		.pricing-table__item {
-			flex-basis: 0;
-			flex-grow: 1;
-			margin: .75rem;
-			max-width: 100%;
-		}
 	}
 }
