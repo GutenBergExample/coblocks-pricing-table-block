@@ -30,7 +30,7 @@ This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_m
 
 == Changelog ==
 
-= 1.0.1, January 02, 2018 =
+= 1.0.1, January 03, 2018 =
 * New: Combined the single, two, and three column pricing tables blocks into one block
 * New: Added a control to select 1, 2, or 3 tables across
 * New: Added an option to highlight a particular table

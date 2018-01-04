@@ -5,7 +5,7 @@
  * Description: Easily add pricing tables within the upcoming Gutenberg editor. <strong>This is a beta release.</strong>
  * Author: Rich Tabor from GutenKit
  * Author URI: https://richtabor.com
- * Version: 1.0.0
+ * Version: @@pkg.version
  * Text Domain: gutenkit
  * Domain Path: languages
  * Requires at least: 4.7
@@ -29,7 +29,7 @@
  *
  * @package   @@pkg.title for Gutenberg
  * @author    @@pkg.author
- * @license   GPL-3.0
+ * @license   @@pkg.license
  */
 
 /**

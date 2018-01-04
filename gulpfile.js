@@ -264,5 +264,5 @@ gulp.task( 'finished-building', function () {
 });
 
 gulp.task( 'build', function( callback ) {
-	runSequence( 'clear', 'clean', [ 'styles', 'editor_styles', 'scripts', 'translate' ], 'copy', [ 'variables', 'use_minified_assets'], 'zip', 'clean-after-zip', 'finished-building', callback);
+	runSequence( 'clear', 'clean', [ 'styles', 'editor_styles', 'scripts', 'translate' ], 'copy', 'variables', 'use_minified_assets', 'zip', 'clean-after-zip', 'finished-building', callback);
 });

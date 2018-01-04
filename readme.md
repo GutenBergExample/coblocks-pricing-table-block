@@ -12,7 +12,7 @@
 
 1. Install the offical [Gutenberg](https://wordpress.org/plugins/gutenberg/) plugin. Note that Gutenberg is not suggested for use on production sites.
 2. [Download the latest release](https://github.com/thatplugincompany/gutenkit-pricing-table-block/releases) from the GitHub repository, or..
-3. Download the plugin from the [WordPress plugin directory](https://wordpress.org/plugins/gutenkit-pricing-table-block/).
+3. Download the plugin from the [WordPress plugin directory](https://wordpress.org/plugins/pricing-table-block-gutenberg/).
 
 ## Bugs ##
 If you find an issue, [create an issue](https://github.com/thatplugincompany/gutenkit-pricing-table-block/issues?state=open).
