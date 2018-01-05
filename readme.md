@@ -4,7 +4,7 @@
 
 A Gutenberg block from [GutenKit](https://gutenkit.com?utm_medium=gutenkit-pricing-table-github&utm_source=readme&utm_campaign=readme&utm_content=gutenkit) that let's you easily add a pricing table to your landing and sales pages within the Gutenberg editor. 
 
-[![View the GutenKit Pricing Table Block in action](https://user-images.githubusercontent.com/1813435/34488068-fff8e3e6-efa4-11e7-89c5-195021669a11.gif)](https://gutenkit.com)
+[![View the GutenKit Pricing Table Block in action](https://user-images.githubusercontent.com/1813435/34620251-cfe7a21c-f212-11e7-978d-3bb90f0413eb.gif)](https://gutenkit.com)
 
 ## Installation ##
 
