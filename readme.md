@@ -2,11 +2,9 @@
 
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress](https://img.shields.io/wordpress/v/pricing-table-block-gutenberg.svg?style=flat)]() [![License](https://img.shields.io/badge/license-GPL--3.0%2B-red.svg)](https://github.com/thatplugincompany/gutenkit-pricing-table-block/blob/master/license.txt)
 
-[GutenKit's](https://gutenkit.com?utm_medium=gutenkit-pricing-tables-github&utm_source=readme&utm_campaign=readme&utm_content=gutenkits) new Pricing Table Block is the easiest and fastest way to add pricing tables to your WordPress sales and landing pages.
+A Gutenberg block from [GutenKit](https://gutenkit.com?utm_medium=gutenkit-pricing-table-github&utm_source=readme&utm_campaign=readme&utm_content=gutenkit) that let's you easily add a pricing table to your landing and sales pages within the Gutenberg editor. 
 
-### See it in action: ###
-
-![GutenKit Pricing Tables for Gutenberg](https://user-images.githubusercontent.com/1813435/34488068-fff8e3e6-efa4-11e7-89c5-195021669a11.gif)
+[![View the GutenKit Pricing Table Block in action](https://user-images.githubusercontent.com/1813435/34488068-fff8e3e6-efa4-11e7-89c5-195021669a11.gif)](https://gutenkit.com)
 
 ## Installation ##
 
@@ -15,7 +13,7 @@
 3. Download the plugin from the [WordPress plugin directory](https://wordpress.org/plugins/pricing-table-block-gutenberg/).
 
 ## Bugs ##
-If you find an issue, [create an issue](https://github.com/thatplugincompany/gutenkit-pricing-table-block/issues?state=open).
+If you find a 🐞 or an issue, [create an issue](https://github.com/thatplugincompany/gutenkit-pricing-table-block/issues?state=open).
 
 ## Development ##
 1. Clone the GitHub repository: `https://github.com/thatplugincompany/gutenkit-pricing-table-block.git`
@@ -35,3 +33,9 @@ There are various ways you can contribute:
 1. Raise an [Issue](https://github.com/thatplugincompany/gutenkit-pricing-table-block/issues) on GitHub
 2. Send a pull request with your bug fixes and/or new features
 3. Provide feedback and suggestions on [enhancements](https://github.com/thatplugincompany/gutenkit-pricing-table-block/issues?direction=desc&labels=Enhancement&page=1&sort=created&state=open)
+
+## Meet GutenKit. Coming April 2018. ##
+
+[![GutenKit, an upcoming kit of Gutenberg Blocks](https://user-images.githubusercontent.com/1813435/34618784-e4c1a782-f20d-11e7-803f-4a9bb10e2d52.jpg)](https://gutenkit.com)
+    
+[GutenKit](https://gutenkit.com?utm_medium=gutenkit-pricing-table-github&utm_source=readme&utm_campaign=readme&utm_content=meeet-gutenkit) is an upcoming suite of Gutenberg blocks designed to help you build better sales and landing pages. 
