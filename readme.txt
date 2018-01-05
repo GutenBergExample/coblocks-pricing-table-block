@@ -30,6 +30,9 @@ This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_m
 
 == Changelog ==
 
+= 1.0.2, January 05, 2018 =
+* Tweak: Modified the block's slug so that themes would not need to style both versions of the block.
+
 = 1.0.1, January 03, 2018 =
 * New: Combined the single, two, and three column pricing tables blocks into one block
 * New: Added a control to select 1, 2, or 3 tables across

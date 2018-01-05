@@ -148,7 +148,7 @@ const blockAttributes = {
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'gutenkit-lite/pricing-table', {
+registerBlockType( 'gutenkit/pricing-table', {
 	title: __( 'Pricing Table' ),
 	icon: 'editor-table',
 	category: 'common',
@@ -399,9 +399,9 @@ registerBlockType( 'gutenkit-lite/pricing-table', {
 
 			<div className={ className } >
 
-				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit-lite/pricing-table"] { margin-top: ' + marginTop + 'px; margin-bottom: ' + marginBottom + 'px; }' } } />
+				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit/pricing-table"] { margin-top: ' + marginTop + 'px; margin-bottom: ' + marginBottom + 'px; }' } } />
 
-				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit-lite/pricing-table"] .pricing-table__highlight { background-color: ' + color__highlightBackground + '; }' } } />
+				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit/pricing-table"] .pricing-table__highlight { background-color: ' + color__highlightBackground + '; }' } } />
 
 				<div className={ 'pricing-table pricing-table--' + columns + ' pricing-table--' + align } style={ { textAlign: align } }>
 
