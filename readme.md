@@ -1,5 +1,5 @@
 # Gutenberg Pricing Table Block by GutenKit
-
+[![WP](https://img.shields.io/badge/WordPress-%E2%86%92-lightgrey.svg?style=flat-square)](https://wordpress.org/plugins/pricing-table-block-gutenberg)
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress](https://img.shields.io/wordpress/v/pricing-table-block-gutenberg.svg?style=flat)]() [![License](https://img.shields.io/badge/license-GPL--3.0%2B-red.svg)](https://github.com/thatplugincompany/gutenkit-pricing-table-block/blob/master/license.txt)
 
 A Gutenberg block from [GutenKit](https://gutenkit.com?utm_medium=gutenkit-pricing-table-github&utm_source=readme&utm_campaign=readme&utm_content=gutenkit) that let's you easily add a pricing table to your landing and sales pages within the Gutenberg editor. 
