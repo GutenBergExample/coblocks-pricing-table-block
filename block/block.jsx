@@ -107,14 +107,6 @@ const blockAttributes = {
 		type: 'number',
 		default: 2,
 	},
-	marginTop: {
-		type: 'number',
-		default: '30',
-	},
-	marginBottom: {
-		type: 'number',
-		default: '30',
-	},
 	color__table: {
 		type: 'string',
 	},
@@ -150,6 +142,7 @@ const blockAttributes = {
  */
 registerBlockType( 'gutenkit/pricing-table', {
 	title: __( 'Pricing Table' ),
+	description: __( 'Easily create pricing tables.' ),
 	icon: 'editor-table',
 	category: 'common',
 	keywords: [ __( 'pricing' ), __( 'table' ), __( 'plan' ) ],
@@ -182,8 +175,6 @@ registerBlockType( 'gutenkit/pricing-table', {
 			align,
 			layout,
 			columns,
-			marginTop,
-			marginBottom,
 			color__table,
 			color__text,
 			color__buttonBackground,
@@ -200,25 +191,6 @@ registerBlockType( 'gutenkit/pricing-table', {
 				</BlockDescription>
 
 				<PanelBody title={ __( 'Layout' ) } initialOpen={ false }>
-					<RangeControl
-						label={ __( 'Top Spacing' ) }
-						value={ marginTop || '' }
-						onChange={ ( value ) => setAttributes( { marginTop: value } ) }
-						min={ 0 }
-						max={ 400 }
-						beforeIcon="editor-textcolor"
-						allowReset
-					/>
-					<RangeControl
-						label={ __( 'Bottom Spacing' ) }
-						value={ marginBottom || '' }
-						onChange={ ( value ) => setAttributes( { marginBottom: value } ) }
-						min={ 0 }
-						max={ 400 }
-						beforeIcon="editor-textcolor"
-						allowReset
-					/>
-
 					<SelectControl
 						label={ __( 'Columns' ) }
 						value={ columns }
@@ -398,8 +370,6 @@ registerBlockType( 'gutenkit/pricing-table', {
 			),
 
 			<div className={ className } >
-
-				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit/pricing-table"] { margin-top: ' + marginTop + 'px; margin-bottom: ' + marginBottom + 'px; }' } } />
 
 				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit/pricing-table"] .pricing-table__highlight { background-color: ' + color__highlightBackground + '; }' } } />
 
@@ -643,8 +613,6 @@ registerBlockType( 'gutenkit/pricing-table', {
 			align,
 			layout,
 			columns,
-			marginTop,
-			marginBottom,
 			color__table,
 			color__text,
 			color__buttonBackground,
@@ -655,7 +623,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 
 		return (
 
-			<div className={ className } style={ { marginTop: marginTop ? marginTop + 'px' : undefined, marginBottom: marginBottom ? marginBottom + 'px' : undefined, } }>
+			<div className={ className }>
 
 				<div className={ 'pricing-table pricing-table--' + columns + ' pricing-table--' + align } style={ { textAlign: align } }>
 

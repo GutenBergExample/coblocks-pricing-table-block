@@ -80,7 +80,6 @@ class Gutenkit_Lite_Pricing_Table_Block {
 	 * The Constructor.
 	 */
 	private function __construct() {
-
 		$this->_version = '@@pkg.version';
 		$this->_slug    = 'gutenkit-lite-pricing-table-block';
 		$this->_dir     = untrailingslashit( plugin_dir_path( __FILE__ ) );
