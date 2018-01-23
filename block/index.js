@@ -417,7 +417,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 
 							<Editable
 								tagName='h5'
-								className={ 'pricing-table__amount' }
+								className={ 'pricing-table__amount gutenkit--header-font' }
 								onChange={ onChangeAmount }
 								style={ { color: tableColor } }
 								value={ amount }
@@ -515,7 +515,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 
 							<Editable
 								tagName='h5'
-								className={ 'pricing-table__amount' }
+								className={ 'pricing-table__amount gutenkit--header-font' }
 								onChange={ onChangeAmount_2 }
 								style={ { color: tableColor } }
 								value={ amount_2 }
@@ -652,7 +652,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 								{ currency }
 							</span>
 
-							<h5 className={ 'pricing-table__amount' } style={ { color: tableColor } }>
+							<h5 className={ 'pricing-table__amount gutenkit--header-font' } style={ { color: tableColor } }>
 								{ amount }
 							</h5>
 						</div>
@@ -692,7 +692,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 								{ currency_2 }
 							</span>
 
-							<h5 className={ 'pricing-table__amount' } style={ { color: tableColor } }>
+							<h5 className={ 'pricing-table__amount gutenkit--header-font' } style={ { color: tableColor } }>
 								{ amount_2 }
 							</h5>
 						</div>
