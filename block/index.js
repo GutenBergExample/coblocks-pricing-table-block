@@ -116,23 +116,23 @@ const blockAttributes = {
 		type: 'number',
 		default: 2,
 	},
-	color__table: {
+	tableBackground: {
 		type: 'string',
 	},
-	color__text: {
+	tableColor: {
 		type: 'string',
 	},
-	color__buttonBackground: {
+	buttonBackground: {
 		type: 'string',
 	},
-	color__buttonText: {
+	buttonColor: {
 		type: 'string',
 	},
-	color__highlightBackground: {
+	highlightBackground: {
 		type: 'string',
 		default: '#32373c',
 	},
-	color__highlightText: {
+	highlightColor: {
 		type: 'string',
 	},
 };
@@ -184,70 +184,53 @@ registerBlockType( 'gutenkit/pricing-table', {
 			align,
 			layout,
 			columns,
-			color__table,
-			color__text,
-			color__buttonBackground,
-			color__buttonText,
-			color__highlightBackground,
-			color__highlightText
+			tableBackground,
+			tableColor,
+			buttonBackground,
+			buttonColor,
+			highlightBackground,
+			highlightColor
 		} = attributes;
 
 		const inspectorControls = focus && (
 			<InspectorControls key="inspector">
 
-				<BlockDescription>
-					<p>{ __( 'Add pricing tables to your page.' ) }</p>
-				</BlockDescription>
-
-				<PanelBody title={ __( 'Layout' ) } initialOpen={ false }>
-					<SelectControl
-						label={ __( 'Columns' ) }
-						value={ columns }
-						onChange={ ( value ) => setAttributes( { columns: value } ) }
-						options={ columnsOptions }
+				<PanelColor title={ __( 'Background Color' ) } colorValue={ tableBackground } initialOpen={ false }>
+					<ColorPalette
+						value={ tableBackground }
+						onChange={ ( colorValue ) => setAttributes( { tableBackground: colorValue } ) }
 					/>
-				</PanelBody>
-
-				<PanelBody title={ __( 'Colors' ) } initialOpen={ true }>
-
-					<PanelColor title={ __( 'Background' ) } colorValue={ color__table } initialOpen={ false }>
-						<ColorPalette
-							value={ color__table }
-							onChange={ ( colorValue ) => setAttributes( { color__table: colorValue } ) }
-						/>
-					</PanelColor>
-					<PanelColor title={ __( 'Text' ) } colorValue={ color__text } initialOpen={ false }>
-						<ColorPalette
-							value={ color__text }
-							onChange={ ( colorValue ) => setAttributes( { color__text: colorValue } ) }
-						/>
-					</PanelColor>
-					<PanelColor title={ __( 'Button' ) } colorValue={ color__buttonBackground } initialOpen={ false }>
-						<ColorPalette
-							value={ color__buttonBackground }
-							onChange={ ( colorValue ) => setAttributes( { color__buttonBackground: colorValue } ) }
-						/>
-					</PanelColor>
-					<PanelColor title={ __( 'Button Text' ) } colorValue={ color__buttonText } initialOpen={ false }>
-						<ColorPalette
-							value={ color__buttonText }
-							onChange={ ( colorValue ) => setAttributes( { color__buttonText: colorValue } ) }
-						/>
-					</PanelColor>
-					<PanelColor title={ __( 'Highlight' ) } colorValue={ color__highlightBackground } initialOpen={ false }>
-						<ColorPalette
-							value={ color__highlightBackground }
-							onChange={ ( colorValue ) => setAttributes( { color__highlightBackground: colorValue } ) }
-						/>
-					</PanelColor>
-					<PanelColor title={ __( 'Highlight Text' ) } colorValue={ color__highlightText } initialOpen={ false }>
-						<ColorPalette
-							value={ color__highlightText }
-							onChange={ ( colorValue ) => setAttributes( { color__highlightText: colorValue } ) }
-						/>
-					</PanelColor>
-
-				</PanelBody>
+				</PanelColor>
+				<PanelColor title={ __( 'Text Color' ) } colorValue={ tableColor } initialOpen={ false }>
+					<ColorPalette
+						value={ tableColor }
+						onChange={ ( colorValue ) => setAttributes( { tableColor: colorValue } ) }
+					/>
+				</PanelColor>
+				<PanelColor title={ __( 'Button Color' ) } colorValue={ buttonBackground } initialOpen={ false }>
+					<ColorPalette
+						value={ buttonBackground }
+						onChange={ ( colorValue ) => setAttributes( { buttonBackground: colorValue } ) }
+					/>
+				</PanelColor>
+				<PanelColor title={ __( 'Button Background' ) } colorValue={ buttonColor } initialOpen={ false }>
+					<ColorPalette
+						value={ buttonColor }
+						onChange={ ( colorValue ) => setAttributes( { buttonColor: colorValue } ) }
+					/>
+				</PanelColor>
+				<PanelColor title={ __( 'Highlight Color' ) } colorValue={ highlightBackground } initialOpen={ false }>
+					<ColorPalette
+						value={ highlightBackground }
+						onChange={ ( colorValue ) => setAttributes( { highlightBackground: colorValue } ) }
+					/>
+				</PanelColor>
+				<PanelColor title={ __( 'Highlight Text Color' ) } colorValue={ highlightColor } initialOpen={ false }>
+					<ColorPalette
+						value={ highlightColor }
+						onChange={ ( colorValue ) => setAttributes( { highlightColor: colorValue } ) }
+					/>
+				</PanelColor>
 
 			</InspectorControls>
 		);
@@ -380,18 +363,18 @@ registerBlockType( 'gutenkit/pricing-table', {
 
 			<div className={ className } >
 
-				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit/pricing-table"] .pricing-table__highlight { background-color: ' + color__highlightBackground + '; }' } } />
+				<style dangerouslySetInnerHTML={ { __html: '.editor-block-list__block[data-type="gutenkit/pricing-table"] .pricing-table__highlight { background-color: ' + highlightBackground + '; }' } } />
 
 				<div className={ 'pricing-table pricing-table--' + columns + ' pricing-table--' + align } style={ { textAlign: align } }>
 
-					<div className={ 'pricing-table__item pricing-table__item--1' } style={ { backgroundColor: color__table } }>
+					<div className={ 'pricing-table__item pricing-table__item--1' } style={ { backgroundColor: tableBackground } }>
 
 						{ ( ( highlight && highlight.length > 0 ) || !! focus ) && (
 							<Editable
 								tagName='span'
 								value={ highlight }
 								placeholder={ __( 'New' ) }
-								style={ { color: color__highlightText } }
+								style={ { color: highlightColor } }
 								wrapperClassName={ highlight && highlight.length <= 0 ? 'pricing-table__highlight is-empty' : 'pricing-table__highlight' }
 								className={ 'pricing-table__highlight-text' }
 								onChange={
@@ -410,7 +393,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 							multiline="false"
 							className={ 'pricing-table__title' }
 							onChange={ onChangeTitle }
-							style={ { color: color__text } }
+							style={ { color: tableColor } }
 							value={ title }
 							placeholder={ __( 'Plan A' ) }
 							focus={ focus && focus.editable === 'title' ? focus : null }
@@ -424,7 +407,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 								tagName='span'
 								className={ 'pricing-table__currency' }
 								onChange={ onChangeCurrency }
-								style={ { color: color__text } }
+								style={ { color: tableColor } }
 								value={ currency }
 								placeholder={ __( '$' ) }
 								focus={ focus && focus.editable === 'currency' ? focus : null }
@@ -436,7 +419,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 								tagName='h5'
 								className={ 'pricing-table__amount' }
 								onChange={ onChangeAmount }
-								style={ { color: color__text } }
+								style={ { color: tableColor } }
 								value={ amount }
 								placeholder={ __( '99' ) }
 								focus={ focus && focus.editable === 'amount' ? focus : null }
@@ -452,7 +435,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 							className={ 'pricing-table__features' }
 							onChange={ onChangeFeatures }
 							value={ features }
-							style={ { color: color__text } }
+							style={ { color: tableColor } }
 							placeholder={ __( 'Add features' ) }
 							focus={ focus && focus.editable === 'features' ? focus : null }
 							onFocus={ ( props ) => setFocus( { props, editable: 'features' } ) }
@@ -470,8 +453,8 @@ registerBlockType( 'gutenkit/pricing-table', {
 									focus={ focus && focus.editable === 'button' ? focus : null }
 									onFocus={ ( props ) => setFocus( { props, editable: 'button' } ) }
 									style={ {
-										backgroundColor: color__buttonBackground,
-										color: color__buttonText,
+										backgroundColor: buttonBackground,
+										color: buttonColor,
 									} }
 									keepPlaceholderOnFocus
 									formattingControls={ [] }
@@ -483,7 +466,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 
 				{ ( columns >= 2 ) && (
 
-					<div className={ 'pricing-table__item pricing-table__item--2' } style={ { backgroundColor: color__table } }>
+					<div className={ 'pricing-table__item pricing-table__item--2' } style={ { backgroundColor: tableBackground } }>
 
 						{ ( ( highlight_2 && highlight_2.length > 0 ) || !! focus ) && (
 							<Editable
@@ -508,7 +491,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 							multiline="false"
 							className={ 'pricing-table__title' }
 							onChange={ onChangeTitle_2 }
-							style={ { color: color__text } }
+							style={ { color: tableColor } }
 							value={ title_2 }
 							placeholder={ __( 'Plan B' ) }
 							focus={ focus && focus.editable === 'title_2' ? focus : null }
@@ -522,7 +505,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 								tagName='span'
 								className={ 'pricing-table__currency' }
 								onChange={ onChangeCurrency_2 }
-								style={ { color: color__text } }
+								style={ { color: tableColor } }
 								value={ currency_2 }
 								placeholder={ __( '$' ) }
 								focus={ focus && focus.editable === 'currency_2' ? focus : null }
@@ -534,7 +517,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 								tagName='h5'
 								className={ 'pricing-table__amount' }
 								onChange={ onChangeAmount_2 }
-								style={ { color: color__text } }
+								style={ { color: tableColor } }
 								value={ amount_2 }
 								placeholder={ __( '99' ) }
 								focus={ focus && focus.editable === 'amount_2' ? focus : null }
@@ -550,7 +533,7 @@ registerBlockType( 'gutenkit/pricing-table', {
 							className={ 'pricing-table__features' }
 							onChange={ onChangeFeatures_2 }
 							value={ features_2 }
-							style={ { color: color__text } }
+							style={ { color: tableColor } }
 							placeholder={ __( 'Add features' ) }
 							focus={ focus && focus.editable === 'features_2' ? focus : null }
 							onFocus={ ( props ) => setFocus( { props, editable: 'features_2' } ) }
@@ -568,8 +551,8 @@ registerBlockType( 'gutenkit/pricing-table', {
 									focus={ focus && focus.editable === 'button_2' ? focus : null }
 									onFocus={ ( props ) => setFocus( { props, editable: 'button_2' } ) }
 									style={ {
-										backgroundColor: color__buttonBackground,
-										color: color__buttonText,
+										backgroundColor: buttonBackground,
+										color: buttonColor,
 									} }
 									keepPlaceholderOnFocus
 									formattingControls={ [] }
@@ -629,19 +612,19 @@ registerBlockType( 'gutenkit/pricing-table', {
 			align,
 			layout,
 			columns,
-			color__table,
-			color__text,
-			color__buttonBackground,
-			color__buttonText,
-			color__highlightBackground,
-			color__highlightText
+			tableBackground,
+			tableColor,
+			buttonBackground,
+			buttonColor,
+			highlightBackground,
+			highlightColor
 		} = attributes;
 
 		const linkClass = 'wp-block-button__link';
 
 		const buttonStyle = {
-			backgroundColor: color__buttonBackground,
-			color: color__buttonText,
+			backgroundColor: buttonBackground,
+			color: buttonColor,
 		};
 
 		return (
@@ -650,31 +633,31 @@ registerBlockType( 'gutenkit/pricing-table', {
 
 				<div className={ 'pricing-table pricing-table--' + columns + ' pricing-table--' + align } style={ { textAlign: align } }>
 
-					<div className={ 'pricing-table__item pricing-table__item--1' } style={ { backgroundColor: color__table } }>
+					<div className={ 'pricing-table__item pricing-table__item--1' } style={ { backgroundColor: tableBackground } }>
 
 						{ highlight && highlight.length > 0 && (
-							<span className={ 'pricing-table__highlight' } style={ { backgroundColor: color__highlightBackground } }>
-								<span className={ 'pricing-table__highlight-text' } style={ { color: color__highlightText } }>
+							<span className={ 'pricing-table__highlight' } style={ { backgroundColor: highlightBackground } }>
+								<span className={ 'pricing-table__highlight-text' } style={ { color: highlightColor } }>
 									{ highlight }
 								</span>
 							</span>
 						) }
 
 						{ title && title.length > 0 && (
-							<h4 className={ 'pricing-table__title' } style={ { color: color__text } } >{ title }</h4>
+							<h4 className={ 'pricing-table__title' } style={ { color: tableColor } } >{ title }</h4>
 						) }
 
 						<div className={ 'pricing-table__price' }>
-							<span className={ 'pricing-table__currency' } style={ { color: color__text } }>
+							<span className={ 'pricing-table__currency' } style={ { color: tableColor } }>
 								{ currency }
 							</span>
 
-							<h5 className={ 'pricing-table__amount' } style={ { color: color__text } }>
+							<h5 className={ 'pricing-table__amount' } style={ { color: tableColor } }>
 								{ amount }
 							</h5>
 						</div>
 
-						<ul className={ 'pricing-table__features' } style={ { color: color__text } }>
+						<ul className={ 'pricing-table__features' } style={ { color: tableColor } }>
 							{ features }
 						</ul>
 
@@ -690,31 +673,31 @@ registerBlockType( 'gutenkit/pricing-table', {
 
 				{ columns >= 2 && (
 
-					<div className={ 'pricing-table__item pricing-table__item--2' } style={ { backgroundColor: color__table } }>
+					<div className={ 'pricing-table__item pricing-table__item--2' } style={ { backgroundColor: tableBackground } }>
 
 						{ highlight_2 && highlight_2.length > 0 && (
-							<span className={ 'pricing-table__highlight' } style={ { backgroundColor: color__highlightBackground } }>
-								<span className={ 'pricing-table__highlight-text' } style={ { color: color__highlightText } }>
+							<span className={ 'pricing-table__highlight' } style={ { backgroundColor: highlightBackground } }>
+								<span className={ 'pricing-table__highlight-text' } style={ { color: highlightColor } }>
 									{ highlight_2 }
 								</span>
 							</span>
 						) }
 
 						{ title_2 && title_2.length > 0 && (
-							<h4 className={ 'pricing-table__title' } style={ { color: color__text } } >{ title_2 }</h4>
+							<h4 className={ 'pricing-table__title' } style={ { color: tableColor } } >{ title_2 }</h4>
 						) }
 
 						<div className={ 'pricing-table__price' }>
-							<span className={ 'pricing-table__currency' } style={ { color: color__text } }>
+							<span className={ 'pricing-table__currency' } style={ { color: tableColor } }>
 								{ currency_2 }
 							</span>
 
-							<h5 className={ 'pricing-table__amount' } style={ { color: color__text } }>
+							<h5 className={ 'pricing-table__amount' } style={ { color: tableColor } }>
 								{ amount_2 }
 							</h5>
 						</div>
 
-						<ul className={ 'pricing-table__features' } style={ { color: color__text } }>
+						<ul className={ 'pricing-table__features' } style={ { color: tableColor } }>
 							{ features_2 }
 						</ul>
 
