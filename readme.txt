@@ -1,14 +1,14 @@
 === Gutenberg Pricing Table Block by Gutenkit ===
-Author URI: https://richtabor.com
-Plugin URI: https://gutenkit.com
-Contributors: richtabor, gutenkit, thatplugincompany
+Author URI: @@pkg.author_uri
+Plugin URI: @@pkg.plugin_uri
+Contributors: richtabor, gutenkit, thatplugincompany, spencerfinnell
 Donate link: https://richtabor.com
 Tags: gutenberg, pricing tables, pricing, price, comparison table
-Requires at least: 4.7
-Tested up to: 4.9.1
+Requires at least: @@pkg.requires
+Tested up to: @@pkg.tested_up_to
 Requires PHP: 5.2.4
-Stable tag: 1.0.1
-License: GPL-3.0
+Stable tag: @@pkg.version
+License: @@pkg.license
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 GutenKit is an upcoming collection of Gutenberg blocks that let you easily add pricing tables to any landing or sales page using Gutenberg.
