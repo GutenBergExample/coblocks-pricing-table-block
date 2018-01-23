@@ -460,20 +460,23 @@ registerBlockType( 'gutenkit/pricing-table', {
 						/>
 
 						{ ( ( button && button.length > 0 ) || !! focus ) && (
-							<div key="button" className={ 'wp-block-button' } title={ button } style={ { backgroundColor: color__buttonBackground } }>
+							<span key="button" className={ 'wp-block-button' } title={ button }>
 								<Editable
-									key='editable'
 									tagName='span'
-									className={ 'pricing-table__button' }
+									className="wp-block-button__link pricing-table__button"
 									onChange={ onChangeButton }
-									style={ { color: color__buttonText } }
 									value={ button }
 									placeholder={ __( 'Buy Now' ) }
 									focus={ focus && focus.editable === 'button' ? focus : null }
 									onFocus={ ( props ) => setFocus( { props, editable: 'button' } ) }
+									style={ {
+										backgroundColor: color__buttonBackground,
+										color: color__buttonText,
+									} }
 									keepPlaceholderOnFocus
+									formattingControls={ [] }
 								/>
-							</div>
+							</span>
 						) }
 
 					</div>
@@ -555,19 +558,23 @@ registerBlockType( 'gutenkit/pricing-table', {
 						/>
 
 						{ ( ( button_2 && button_2.length > 0 ) || !! focus ) && (
-							<div key="button" className={ 'wp-block-button' } title={ button_2 } style={ { backgroundColor: color__buttonBackground } }>
+							<span key="button" className={ 'wp-block-button' } title={ button_2 }>
 								<Editable
 									tagName='span'
-									className={ 'pricing-table__button' }
+									className="wp-block-button__link pricing-table__button"
 									onChange={ onChangeButton_2 }
-									style={ { color: color__buttonText } }
 									value={ button_2 }
 									placeholder={ __( 'Buy Now' ) }
 									focus={ focus && focus.editable === 'button_2' ? focus : null }
 									onFocus={ ( props ) => setFocus( { props, editable: 'button_2' } ) }
+									style={ {
+										backgroundColor: color__buttonBackground,
+										color: color__buttonText,
+									} }
 									keepPlaceholderOnFocus
+									formattingControls={ [] }
 								/>
-							</div>
+							</span>
 						) }
 
 					</div>
@@ -630,6 +637,13 @@ registerBlockType( 'gutenkit/pricing-table', {
 			color__highlightText
 		} = attributes;
 
+		const linkClass = 'wp-block-button__link';
+
+		const buttonStyle = {
+			backgroundColor: color__buttonBackground,
+			color: color__buttonText,
+		};
+
 		return (
 
 			<div className={ className }>
@@ -665,11 +679,11 @@ registerBlockType( 'gutenkit/pricing-table', {
 						</ul>
 
 						{ button && button.length > 0 && (
-							<div className={ 'wp-block-button' } style={ { backgroundColor: color__buttonBackground } }>
-								<a className={ 'pricing-table__button' } href={ url } title={ button } style={ { color: color__buttonText } }>
+							<span className={ 'wp-block-button' }>
+								<a className={ linkClass + ' pricing-table__button' } href={ url } title={ button } style={ buttonStyle }>
 									{ button }
 								</a>
-							</div>
+							</span>
 						) }
 
 					</div>
@@ -705,11 +719,11 @@ registerBlockType( 'gutenkit/pricing-table', {
 						</ul>
 
 						{ button_2 && button_2.length > 0 && (
-							<div className={ 'wp-block-button' } style={ { backgroundColor: color__buttonBackground } }>
-								<a className={ 'pricing-table__button' } href={ url_2 } title={ button_2 } style={ { color: color__buttonText } }>
+							<span className={ 'wp-block-button' }>
+								<a className={ linkClass + ' pricing-table__button' } href={ url_2 } title={ button_2 } style={ buttonStyle }>
 									{ button_2 }
 								</a>
-							</div>
+							</span>
 						) }
 					</div>
 				) }
