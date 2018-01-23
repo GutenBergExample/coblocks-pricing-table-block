@@ -2,6 +2,9 @@
  * @@pkg.title
  */
 
+/**
+ * External dependencies
+ */
 const { __ } = wp.i18n;
 const { Toolbar, PanelBody, PanelColor, Dashicon, IconButton } = wp.components;
 const InspectorControls = wp.blocks.InspectorControls;
@@ -17,6 +20,12 @@ const {
 	ColorPalette,
 	source
 } = wp.blocks;
+
+/**
+ * Internal dependencies
+ */
+import './editor.scss';
+import './style.scss';
 
 const columnsOptions = [
 	{ value: 1, label: __( 'One Column' ) },
