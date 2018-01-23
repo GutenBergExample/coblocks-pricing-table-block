@@ -15,7 +15,6 @@ const {
 	Editable,
 	BlockControls,
 	AlignmentToolbar,
-	BlockDescription,
 	UrlInput,
 	ColorPalette,
 	source

@@ -3,7 +3,7 @@ Author URI: @@pkg.author_uri
 Plugin URI: @@pkg.plugin_uri
 Contributors: richtabor, gutenkit, thatplugincompany, spencerfinnell
 Donate link: https://richtabor.com
-Tags: gutenberg, pricing tables, pricing, price, comparison table
+Tags: @@pkg.tags
 Requires at least: @@pkg.requires
 Tested up to: @@pkg.tested_up_to
 Requires PHP: 5.2.4
