@@ -30,8 +30,8 @@ const ExtractTextPlugin = require( 'extract-text-webpack-plugin' ); // CSS loade
 // Configuration for the ExtractTextPlugin.
 const extractConfig = {
 	use: [
-		{ 
-			loader: 'raw-loader' 
+		{
+			loader: 'raw-loader'
 		},
 		{
 			loader: 'postcss-loader',
