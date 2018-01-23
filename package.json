@@ -4,7 +4,7 @@
 	"slug": "pricing-table-block-gutenberg",
 	"textdomain": "pricing-table-block-gutenberg",
 	"author": "Rich from GutenKit",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"tags": "gutenberg, pricing tables, pricing, price, comparison table",
 	"requires": "4.7",
 	"tested_up_to": "4.9.1",

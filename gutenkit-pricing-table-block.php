@@ -6,7 +6,7 @@
  * Author: @@pkg.author
  * Author URI: https://richtabor.com
  * Version: @@pkg.version
- * Text Domain: @@pkg.textdomain
+ * Text Domain: @@textdomain
  * Domain Path: languages
  * Requires at least: @@pkg.requires
  * Tested up to: @@pkg.tested_up_to

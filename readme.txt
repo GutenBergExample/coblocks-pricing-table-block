@@ -30,8 +30,16 @@ This plugin is created and maintaned by [Rich Tabor](https://richtabor.com?utm_m
 
 == Changelog ==
 
+= 1.0.3, January 23, 2018 =
+* Fix: Updated the button rendering to resemble core Gutenberg's button block
+* Tweak: Added the 'gutenkit--header-font' utility class for easier theme compatibility
+* Tweak: Modified block attributes to resemble core Gutenberg's formatting
+* Tweak: Removed marginBottom and marginTop attributes (use the GutenKit Spacer Block instead)
+* Tweak: Modified the Inspector Controls to fit better within the core Gutenberg UX
+* Tweak: Organized to resemble core Gutenberg block structuring
+
 = 1.0.2, January 05, 2018 =
-* Tweak: Modified the block's slug so that themes would not need to style both versions of the block.
+* Tweak: Modified the block's slug so that themes would not need to style both versions of the block
 
 = 1.0.1, January 03, 2018 =
 * New: Combined the single, two, and three column pricing tables blocks into one block
