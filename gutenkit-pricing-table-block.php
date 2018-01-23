@@ -108,7 +108,7 @@ class Gutenkit_Lite_Pricing_Table_Block {
 		// Styles.
 		wp_enqueue_style(
 			$this->_slug,
-			$this->_url . '/block/style.css',
+			$this->_url . '/block/build/style.css',
 			array( 'wp-blocks' ),
 			$this->_version
 		);
@@ -124,7 +124,7 @@ class Gutenkit_Lite_Pricing_Table_Block {
 		// Scripts.
 		wp_enqueue_script(
 			$this->_slug,
-			$this->_url . '/block/block.build.js',
+			$this->_url . '/block/build/index.js',
 			array( 'wp-blocks', 'wp-i18n', 'wp-element' ),
 			$this->_version
 		);
@@ -132,7 +132,7 @@ class Gutenkit_Lite_Pricing_Table_Block {
 		// Styles.
 		wp_enqueue_style(
 			$this->_slug . '-editor',
-			$this->_url . '/block/editor.css',
+			$this->_url . '/block/build/editor.css',
 			array( 'wp-edit-blocks' ),
 			$this->_version
 		);
