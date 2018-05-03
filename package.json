@@ -37,7 +37,6 @@
 		"gulp-wp-pot": "^1.2.2",
 		"gulp-zip": "^4.0.0",
 		"node-sass": "^4.7.2",
-		"postcss-loader": "^2.0.10",
 		"raw-loader": "^0.5.1",
 		"run-sequence": "^2.2.0",
 		"sass-loader": "^6.0.6",
