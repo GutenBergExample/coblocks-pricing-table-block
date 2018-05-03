@@ -3,6 +3,7 @@
  */
 import './styles/editor.scss';
 import './styles/style.scss';
+import PricingTable from './components/pricing-table';
 import PricingTableBlock from './components/edit';
 import icons from './components/icons';
 
@@ -121,7 +122,7 @@ registerBlockType( 'coblocks/pricing-table', {
 
 	edit: PricingTableBlock,
 
-	save( { attributes, className } ) {
+	save: function( props ) {
 
 		const {
 			align,
@@ -143,85 +144,38 @@ registerBlockType( 'coblocks/pricing-table', {
 			title_2,
 			url,
 			url_2,
-		} = attributes;
-
-		const linkClass = 'wp-block-button__link';
-
-		const buttonStyle = {
-			backgroundColor: buttonBackground,
-			color: buttonColor,
-		};
+		} = props.attributes;
 
 		return (
 
-			<div className={ className }>
-
-				<div className={ 'pricing-table pricing-table--' + columns + ' pricing-table--' + align } style={ { textAlign: align } }>
-
-					<div className={ 'pricing-table__item pricing-table__item--1' } style={ { backgroundColor: tableBackground } }>
-
-						{ title && title.length > 0 && (
-							<h4 className={ 'pricing-table__title' } style={ { color: tableColor } } >{ title }</h4>
-						) }
-
-						<div className={ 'pricing-table__price' }>
-							<span className={ 'pricing-table__currency' } style={ { color: tableColor } }>
-								{ currency }
-							</span>
-
-							<h5 className={ 'pricing-table__amount gutenkit--header-font' } style={ { color: tableColor } }>
-								{ amount }
-							</h5>
-						</div>
-
-						<ul className={ 'pricing-table__features' } style={ { color: tableColor } }>
-							{ features }
-						</ul>
-
-						{ button && button.length > 0 && (
-							<span className={ 'wp-block-button' }>
-								<a className={ linkClass + ' pricing-table__button' } href={ url } title={ button } style={ buttonStyle }>
-									{ button }
-								</a>
-							</span>
-						) }
-
-					</div>
-
-					{ columns >= 2 && (
-
-						<div className={ 'pricing-table__item pricing-table__item--2' } style={ { backgroundColor: tableBackground } }>
-
-							{ title_2 && title_2.length > 0 && (
-								<h4 className={ 'pricing-table__title' } style={ { color: tableColor } } >{ title_2 }</h4>
-							) }
-
-							<div className={ 'pricing-table__price' }>
-								<span className={ 'pricing-table__currency' } style={ { color: tableColor } }>
-									{ currency_2 }
-								</span>
-
-								<h5 className={ 'pricing-table__amount gutenkit--header-font' } style={ { color: tableColor } }>
-									{ amount_2 }
-								</h5>
-							</div>
-
-							<ul className={ 'pricing-table__features' } style={ { color: tableColor } }>
-								{ features_2 }
-							</ul>
-
-							{ button_2 && button_2.length > 0 && (
-								<span className={ 'wp-block-button' }>
-									<a className={ linkClass + ' pricing-table__button' } href={ url_2 } title={ button_2 } style={ buttonStyle }>
-										{ button_2 }
-									</a>
-								</span>
-							) }
-						</div>
-					) }
-
-				</div>
-
+			<div
+				className={ props.className + ' pricing-table pricing-table--' + columns + ' pricing-table--' + align }
+				style={ {
+					textAlign: align
+				} }
+			>
+				<PricingTable { ...props }
+					amount={ amount }
+					button={ button }
+					className={ 'pricing-table__item pricing-table__item--1' }
+					currency={ currency }
+					features={ features }
+					title={ title }
+					url={ url }
+				>
+				</PricingTable>
+				{ columns >= 2 && (
+					<PricingTable { ...props }
+						amount={ amount_2 }
+						button={ button_2 }
+						className={ 'pricing-table__item pricing-table__item--2' }
+						currency={ currency_2 }
+						features={ features_2 }
+						title={ title_2 }
+						url={ url_2 }
+					>
+					</PricingTable>
+				) }
 			</div>
 		);
 	},

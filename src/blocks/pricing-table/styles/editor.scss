@@ -1,22 +1,5 @@
 .editor-block-list__block[data-type="coblocks/pricing-table"] {
 
-	.pricing-table__highlight {
-		background-color: #32373c;
-
-		&.is-empty {
-			background-color: rgba(#32373c, 0.2);
-			color: #fff;
-
-			span {
-				opacity: 1;
-			}
-		}
-
-		.blocks-editable__tinymce[data-is-placeholder-visible="true"] {
-			top: auto;
-		}
-	}
-
 	.pricing-table__price {
 		display: flex !important;
 

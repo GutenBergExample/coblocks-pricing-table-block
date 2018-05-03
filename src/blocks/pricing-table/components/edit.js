@@ -51,7 +51,6 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 			currency_2,
 			features,
 			features_2,
-			highlight_2,
 			layout,
 			tableBackground,
 			tableColor,
@@ -65,6 +64,8 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 			setState( { editable: newEditable } );
 		};
 
+		const formattingControls = [ 'bold', 'italic', 'strikethrough' ];
+
 		return [
 			isSelected && (
 				<Controls
@@ -76,86 +77,88 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 					{ ...this.props }
 				/>
 			),
-			<div className={ className } >
 
-				<div className={ 'pricing-table pricing-table--' + columns + ' pricing-table--' + align } style={ { textAlign: align } }>
+			<div className={ className + ' pricing-table pricing-table--' + columns + ' pricing-table--' + align } style={ { textAlign: align } }>
 
-					<div className={ 'pricing-table__item pricing-table__item--1' } style={ { backgroundColor: tableBackground } }>
+				<div className={ 'pricing-table__item pricing-table__item--1' } style={ { backgroundColor: tableBackground } }>
+
+					<RichText
+						tagName="h4"
+						className={ 'pricing-table__title' }
+						onChange={ ( nextTitle ) => setAttributes( { title: nextTitle } ) }
+						style={ { color: tableColor } }
+						value={ title }
+						placeholder={ __( 'Plan A' ) }
+						isSelected={ isSelected && editable === 'title' }
+						onFocus={ onSetActiveEditable( 'title' ) }
+						formattingControls={ formattingControls }
+						keepPlaceholderOnFocus
+					/>
+
+					<div className={ 'pricing-table__price' }>
 
 						<RichText
-							tagName="h4"
-							className={ 'pricing-table__title' }
-							onChange={ ( nextTitle ) => setAttributes( { title: nextTitle } ) }
+							tagName='span'
+							className={ 'pricing-table__currency' }
+							onChange={ ( nextCurrency ) => setAttributes( { currency: nextCurrency } ) }
 							style={ { color: tableColor } }
-							value={ title }
-							placeholder={ __( 'Plan A' ) }
-							isSelected={ isSelected && editable === 'title' }
-							onFocus={ onSetActiveEditable( 'title' ) }
+							value={ currency }
+							placeholder={ __( '$' ) }
+							isSelected={ isSelected && editable === 'currency' }
+							onFocus={ onSetActiveEditable( 'currency' ) }
+							formattingControls={ formattingControls }
 							keepPlaceholderOnFocus
 						/>
 
-						<div className={ 'pricing-table__price' }>
-
-							<RichText
-								tagName='span'
-								className={ 'pricing-table__currency' }
-								onChange={ ( nextCurrency ) => setAttributes( { currency: nextCurrency } ) }
-								style={ { color: tableColor } }
-								value={ currency }
-								placeholder={ __( '$' ) }
-								isSelected={ isSelected && editable === 'currency' }
-								onFocus={ onSetActiveEditable( 'currency' ) }
-								keepPlaceholderOnFocus
-							/>
-
-							<RichText
-								tagName='h5'
-								className={ 'pricing-table__amount gutenkit--header-font' }
-								onChange={ ( nextAmount ) => setAttributes( { amount: nextAmount } ) }
-								style={ { color: tableColor } }
-								value={ amount }
-								placeholder={ __( '99' ) }
-								isSelected={ isSelected && editable === 'amount' }
-								onFocus={ onSetActiveEditable( 'amount' ) }
-								keepPlaceholderOnFocus
-							/>
-
-						</div>
-
 						<RichText
-							tagName='ul'
-							multiline='li'
-							className={ 'pricing-table__features' }
-							onChange={ ( nextFeatures ) => setAttributes( { features: nextFeatures } ) }
-							value={ features }
+							tagName='h5'
+							className={ 'pricing-table__amount' }
+							onChange={ ( nextAmount ) => setAttributes( { amount: nextAmount } ) }
 							style={ { color: tableColor } }
-							placeholder={ __( 'Add features' ) }
-							isSelected={ isSelected && editable === 'features' }
-							onFocus={ onSetActiveEditable( 'features' ) }
+							value={ amount }
+							placeholder={ __( '99' ) }
+							isSelected={ isSelected && editable === 'amount' }
+							onFocus={ onSetActiveEditable( 'amount' ) }
+							formattingControls={ formattingControls }
 							keepPlaceholderOnFocus
 						/>
-
-						{ ( ( button && button.length > 0 ) || !! focus ) && (
-							<span key="button" className={ 'wp-block-button' } title={ button }>
-								<RichText
-									tagName='span'
-									className="wp-block-button__link pricing-table__button"
-									onChange={ ( nextButton ) => setAttributes( { button: nextButton } ) }
-									value={ button }
-									placeholder={ __( 'Buy Now' ) }
-									isSelected={ isSelected && editable === 'button' }
-									onFocus={ onSetActiveEditable( 'button' ) }
-									style={ {
-										backgroundColor: buttonBackground,
-										color: buttonColor,
-									} }
-									keepPlaceholderOnFocus
-									formattingControls={ [] }
-								/>
-							</span>
-						) }
 
 					</div>
+
+					<RichText
+						tagName='ul'
+						multiline='li'
+						className={ 'pricing-table__features' }
+						onChange={ ( nextFeatures ) => setAttributes( { features: nextFeatures } ) }
+						value={ features }
+						style={ { color: tableColor } }
+						placeholder={ __( 'Add features' ) }
+						isSelected={ isSelected && editable === 'features' }
+						onFocus={ onSetActiveEditable( 'features' ) }
+						keepPlaceholderOnFocus
+					/>
+
+					{ ( ( button && button.length > 0 ) || !! focus ) && (
+						<span key="button" className={ 'wp-block-button' } title={ button }>
+							<RichText
+								tagName='span'
+								className="wp-block-button__link pricing-table__button"
+								onChange={ ( nextButton ) => setAttributes( { button: nextButton } ) }
+								value={ button }
+								placeholder={ __( 'Buy Now' ) }
+								isSelected={ isSelected && editable === 'button' }
+								onFocus={ onSetActiveEditable( 'button' ) }
+								style={ {
+									backgroundColor: buttonBackground,
+									color: buttonColor,
+								} }
+								keepPlaceholderOnFocus
+								formattingControls={ [] }
+							/>
+						</span>
+					) }
+
+				</div>
 
 				{ ( columns >= 2 ) && (
 
@@ -171,6 +174,7 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 							placeholder={ __( 'Plan B' ) }
 							isSelected={ isSelected && editable === 'title_2' }
 							onFocus={ onSetActiveEditable( 'title_2' ) }
+							formattingControls={ formattingControls }
 							keepPlaceholderOnFocus
 						/>
 
@@ -185,18 +189,20 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 								placeholder={ __( '$' ) }
 								isSelected={ isSelected && editable === 'currency_2' }
 								onFocus={ onSetActiveEditable( 'currency_2' ) }
+								formattingControls={ formattingControls }
 								keepPlaceholderOnFocus
 							/>
 
 							<RichText
 								tagName='h5'
-								className={ 'pricing-table__amount gutenkit--header-font' }
+								className={ 'pricing-table__amount' }
 								onChange={ ( nextAmount ) => setAttributes( { amount_2: nextAmount } ) }
 								style={ { color: tableColor } }
 								value={ amount_2 }
 								placeholder={ __( '99' ) }
 								isSelected={ isSelected && editable === 'amount_2' }
 								onFocus={ onSetActiveEditable( 'amount_2' ) }
+								formattingControls={ formattingControls }
 								keepPlaceholderOnFocus
 							/>
 
@@ -237,8 +243,6 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 
 					</div>
 				) }
-
-				</div>
 
 			</div>,
 			isSelected && editable === 'button' && (

@@ -1,7 +1,6 @@
 .wp-block-coblocks-pricing-table {
 
 	.pricing-table {
-		position: relative;
 
 		&__item {
 			background: #f0f0f0;
@@ -56,7 +55,7 @@
 
 	@media (min-width: 600px) {
 
-		.pricing-table.pricing-table--2 {
+		&.pricing-table.pricing-table--2 {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
@@ -73,11 +72,11 @@
 		}
 	}
 
-	.pricing-table--center .pricing-table__price {
+	&.pricing-table--center .pricing-table__price {
 		justify-content: center;
 	}
 
-	.pricing-table--right .pricing-table__price {
+	&.pricing-table--right .pricing-table__price {
 		justify-content: flex-end;
 	}
 }
