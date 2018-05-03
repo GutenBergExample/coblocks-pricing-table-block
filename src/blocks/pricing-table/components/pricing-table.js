@@ -8,7 +8,7 @@ import classnames from 'classnames';
  */
 const { Component } = wp.element;
 
-export default class Accordion extends Component {
+export default class PricingTable extends Component {
 
 	constructor( props ) {
 		super( ...arguments );
@@ -49,59 +49,39 @@ export default class Accordion extends Component {
 		};
 
 		return (
-			<div className={ this.props.className } style={ { backgroundColor: tableBackground } }>
+			<div className={ this.props.className } style={ { backgroundColor: tableBackground } } >
 
 				{ this.props.title && this.props.title.length > 0 && (
-					<h4
-						className={ 'pricing-table__title' }
-						style={ {
-							color: tableColor
-						} }
-					>
+					<h4 className={ 'pricing-table__title' } style={ { color: tableColor } } >
 						{ this.props.title }
 					</h4>
 				) }
 
-				<div className={ 'pricing-table__price' }>
-					<span
-						className={ 'pricing-table__currency' }
-						style={ {
-							color: tableColor
-						} }
-					>
-						{ this.props.currency }
-					</span>
+				{ this.props.amount && this.props.amount.length > 0 && (
+					<div className={ 'pricing-table__price' }>
 
-					<h5
-						className={ 'pricing-table__amount' }
-						style={ {
-							color: tableColor
-						} }
-					>
-						{ this.props.amount }
-					</h5>
-				</div>
+						{ this.props.currency && this.props.currency.length > 0 && (
+							<span className={ 'pricing-table__currency' } style={ { color: tableColor } } >
+								{ this.props.currency }
+							</span>
+						) }
 
-				<ul
-					className={ 'pricing-table__features' }
-					style={ {
-						color: tableColor
-					} }
-				>
+						<h5 className={ 'pricing-table__amount' } style={ { color: tableColor } } >
+							{ this.props.amount }
+						</h5>
+					</div>
+				) }
+
+				{ this.props.features && this.props.features.length > 0 && (
+					<ul className={ 'pricing-table__features' } style={ { color: tableColor } } >
 						{ this.props.features }
-				</ul>
+					</ul>
+				) }
 
 				{ this.props.button && this.props.button.length > 0 && (
-					<span className={ 'wp-block-button' }>
-						<a
-							className={ 'wp-block-button__link pricing-table__button' }
-							href={ this.props.url }
-							title={ this.props.button }
-							style={ buttonStyle }
-						>
-							{ this.props.button }
-						</a>
-					</span>
+					<a className={ 'pricing-table__button wp-block-button__link' } href={ this.props.url } title={ this.props.button } style={ buttonStyle } >
+						{ this.props.button }
+					</a>
 				) }
 
 			</div>

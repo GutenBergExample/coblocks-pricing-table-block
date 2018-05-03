@@ -138,11 +138,11 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 						keepPlaceholderOnFocus
 					/>
 
-					{ ( ( button && button.length > 0 ) || !! focus ) && (
-						<span key="button" className={ 'wp-block-button' } title={ button }>
+					{ ( ( button && button.length > 0 ) || isSelected ) && (
+						<span className={ 'wp-block-button' } title={ button }>
 							<RichText
 								tagName='span'
-								className="wp-block-button__link pricing-table__button"
+								className="pricing-table__button wp-block-button__link"
 								onChange={ ( nextButton ) => setAttributes( { button: nextButton } ) }
 								value={ button }
 								placeholder={ __( 'Buy Now' ) }
@@ -152,8 +152,8 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 									backgroundColor: buttonBackground,
 									color: buttonColor,
 								} }
+								formattingControls={ formattingControls }
 								keepPlaceholderOnFocus
-								formattingControls={ [] }
 							/>
 						</span>
 					) }
@@ -221,11 +221,11 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 							keepPlaceholderOnFocus
 						/>
 
-						{ ( ( button_2 && button_2.length > 0 ) || !! focus ) && (
-							<span key="button" className={ 'wp-block-button' } title={ button_2 }>
+						{ ( ( button_2 && button_2.length > 0 ) || isSelected ) && (
+							<span className={ 'wp-block-button' } title={ button_2 }>
 								<RichText
 									tagName='span'
-									className="wp-block-button__link pricing-table__button"
+									className="pricing-table__button wp-block-button__link"
 									onChange={ ( nextButton ) => setAttributes( { button_2: nextButton } ) }
 									value={ button_2 }
 									placeholder={ __( 'Buy Now' ) }
@@ -235,8 +235,8 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 										backgroundColor: buttonBackground,
 										color: buttonColor,
 									} }
+									formattingControls={ formattingControls }
 									keepPlaceholderOnFocus
-									formattingControls={ [] }
 								/>
 							</span>
 						) }
@@ -245,31 +245,27 @@ export default withState( { editable: 'title' } ) ( class PricingTableBlock exte
 				) }
 
 			</div>,
-			isSelected && editable === 'button' && (
+			isSelected && ( editable === 'button' || editable === 'button_2' ) && (
 				<form
 					className="blocks-button__inline-link"
 					onSubmit={ ( event ) => event.preventDefault() }>
 					<Dashicon icon="admin-links" />
-					<UrlInput
-						value={ url }
-						onChange={ ( value ) => setAttributes( { url: value } ) }
-					/>
-					<IconButton icon="editor-break" label={ __( 'Apply' ) } type="submit" />
-				</form>
-			),
-			columns >= 2 && (
-				isSelected && editable === 'button_2' && (
-					<form
-						className="blocks-button__inline-link"
-						onSubmit={ ( event ) => event.preventDefault() }>
-						<Dashicon icon="admin-links" />
+
+					{ ( isSelected && editable === 'button' ) && (
+						<UrlInput
+							value={ url }
+							onChange={ ( value ) => setAttributes( { url: value } ) }
+						/>
+					) }
+
+					{ editable === 'button_2' && (
 						<UrlInput
 							value={ url_2 }
 							onChange={ ( value ) => setAttributes( { url_2: value } ) }
 						/>
-						<IconButton icon="editor-break" label={ __( 'Apply' ) } type="submit" />
-					</form>
-				)
+					) }
+					<IconButton icon="editor-break" label={ __( 'Apply' ) } type="submit" />
+				</form>
 			)
 		];
 	}

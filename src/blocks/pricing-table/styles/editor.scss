@@ -12,20 +12,12 @@
 		justify-content: flex-end;
 	}
 
+	.wp-block-button__link {
+		line-height: 26px;
+	}
+
 	.blocks-button__inline-link {
-
-		&--fullwidth {
-			width: 100%;
-		}
-
-		&--second {
-			display: flex;
-			margin-left: 60px;
-
-			.dashicon {
-				position: relative;
-				top: 8px;
-			}
-		}
+		width: 100%;
+		margin-top: 14px;
 	}
 }
