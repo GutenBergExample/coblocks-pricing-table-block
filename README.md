@@ -1,4 +1,4 @@
-# Gutenberg Pricing Table Block by GutenKit
+# Gutenberg Pricing Table Block by CoBlocks
 [![WP](https://img.shields.io/badge/WordPress-%E2%86%92-lightgrey.svg?style=flat-square)](https://wordpress.org/plugins/pricing-table-block-gutenberg)
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/pricing-table-block-gutenberg.svg?style=flat)](https://wordpress.org/plugins/pricing-table-block-gutenberg/) [![WordPress](https://img.shields.io/wordpress/v/pricing-table-block-gutenberg.svg?style=flat)]() [![License](https://img.shields.io/badge/license-GPL--3.0%2B-red.svg)](https://github.com/thatplugincompany/gutenkit-pricing-table-block/blob/master/license.txt)
 
@@ -10,7 +10,7 @@
 
 ## CoBlocks Pricing Table Block ##
 
-This is a Gutenberg block from [CoBlocks](https://coblocks.com?utm_medium=coblocks-pricing-table-block-github&utm_source=readme&utm_campaign=readme&utm_content=coblocks) that let's you easily add vertical spacing between blocks within the Gutenberg editor. [CoBlocks](https://coblocks.com?utm_medium=coblocks-pricing-table-block-github&utm_source=readme&utm_campaign=readme&utm_content=footer-text) is an upcoming suite of page builder Gutenberg blocks built for publishers, writers and content marketers.
+This is a Gutenberg block from [CoBlocks](https://coblocks.com?utm_medium=coblocks-pricing-table-block-github&utm_source=readme&utm_campaign=readme&utm_content=coblocks) that let's you easily add pricing tables within the Gutenberg editor. [CoBlocks](https://coblocks.com?utm_medium=coblocks-pricing-table-block-github&utm_source=readme&utm_campaign=readme&utm_content=footer-text) is an upcoming suite of page builder Gutenberg blocks built for publishers, writers and content marketers.
 
 > 💥 More blocks → [CoBlocks: Gutenberg blocks for content marketers](https://github.com/thatplugincompany/coblocks).
 

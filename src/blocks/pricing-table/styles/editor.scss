@@ -1,10 +1,10 @@
-.editor-block-list__block[data-type="gutenkit/pricing-table"] {
+.editor-block-list__block[data-type="coblocks/pricing-table"] {
 
 	.pricing-table__highlight {
 		background-color: #32373c;
 
 		&.is-empty {
-			background-color: rgba( #32373c, .2 );
+			background-color: rgba(#32373c, 0.2);
 			color: #fff;
 
 			span {
@@ -12,7 +12,7 @@
 			}
 		}
 
-		.blocks-editable__tinymce[data-is-placeholder-visible=true] {
+		.blocks-editable__tinymce[data-is-placeholder-visible="true"] {
 			top: auto;
 		}
 	}
@@ -45,5 +45,4 @@
 			}
 		}
 	}
-
 }
